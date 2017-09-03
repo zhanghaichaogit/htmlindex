@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SUI Mobile Demo</title>
+    <meta name="description" content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
+    <meta name="author" content="阿里巴巴国际UED前端">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css">
+    <link rel="stylesheet" href="/htmlindex/css/common.css">
+</head>
+<body>
+<div class="page-group">
+    <div id="page-fixed-tab-infinite-scroll" class="page">
+        <div class="content">
+            <div class="content-block">
+                <p><a href="#" class="open-about">Open About Popup </a></p>
+            </div>
+        </div>
+        <div class="popup popup-about">
+            <div class="content" data-type="">
+                <div class="buttons-tab fixed-tab">
+                    <a href="#tab1" class="tab-link active button">全部</a>
+                    <a href="#tab2" class="tab-link button">待付款</a>
+                    <a href="#tab3" class="tab-link button">待发货</a>
+                </div>
+                <div class="tabs">
+                    <div id="tab1" class="tab active">
+
+                    </div>
+                    <div id="tab2" class="tab infinite-scroll">
+                        <div class="list-block">
+                            <ul class="list-container">
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                            </ul>
+                        </div>
+                        <!-- 加载提示符 -->
+                        <div class="infinite-scroll-preloader">
+                            <div class="preloader">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab3"  class="tab infinite-scroll">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>
+<script>
+    $(document).on('click','.open-about', function () {
+        $.popup('.popup-about');
+    });
+    $(function () {
+        //多个标签页下的无限滚动
+        $(document).on("pageInit", "#page-fixed-tab-infinite-scroll", function(e, id, page) {
+            console.log("初始化");
+            var loading = false;
+            // 每次加载添加多少条目
+            var itemsPerLoad = 20;
+            // 最多可加载的条目
+            var maxItems = 100;
+            var lastIndex = $('.list-container li')[0].length;
+            function addItems(number, lastIndex) {
+                // 生成新条目的HTML
+                var html = '';
+                for (var i = lastIndex + 1; i <= lastIndex + number; i++) {
+                    html += '<li class="item-content""><div class="item-inner"><div class="item-title">新条目</div></div></li>';
+                }
+                // 添加新条目
+                $('.infinite-scroll.active .list-container').append(html);
+            }
+            $(page).on('infinite', function() {
+                // 如果正在加载，则退出
+                if (loading) return;
+                // 设置flag
+                loading = true;
+                var tabIndex = 0;
+                if($(this).find('.infinite-scroll.active').attr('id') == "tab2"){
+                    tabIndex = 0;
+                }
+                if($(this).find('.infinite-scroll.active').attr('id') == "tab3"){
+                    tabIndex = 1;
+                }
+                lastIndex = $('.list-container').eq(tabIndex).find('li').length;
+                // 模拟1s的加载过程
+                setTimeout(function() {
+                    // 重置加载flag
+                    loading = false;
+                    if (lastIndex >= maxItems) {
+                        // 加载完毕，则注销无限加载事件，以防不必要的加载
+                        //$.detachInfiniteScroll($('.infinite-scroll').eq(tabIndex));
+                        // 删除加载提示符
+                        $('.infinite-scroll-preloader').eq(tabIndex).hide();
+                        return;
+                    }
+                    addItems(itemsPerLoad,lastIndex);
+                    // 更新最后加载的序号
+                    lastIndex =  $('.list-container').eq(tabIndex).find('li').length;
+                    $.refreshScroller();
+                }, 1000);
+            });
+        });
+        $.init();
+    });
+</script>
+<script src="/htmlindex/js/demo.js"></script>
+</body>
+</html>
