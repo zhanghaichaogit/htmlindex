@@ -1,13 +1,27 @@
-.popup-overlay{
+.popup-overlay {
     background: none !important;
-    visibility:hidden !important;
+    visibility: hidden !important;
 }
+
 .content-block {
     margin: 0;
     padding: 0 0.75rem;
     color: #6d6d72;
 }
+
 .list-block {
     margin: 0.05rem 0;
     font-size: 0.85rem;
+}
+
+.bar-tabheight {
+    height: 1.8rem;
+}
+
+.tab-itemheight {
+    height: 1.8rem !important;
+}
+
+.bar-tab ~ .content {
+    bottom: 1.5rem;
 }
