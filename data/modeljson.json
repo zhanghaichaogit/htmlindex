@@ -1,8 +1,13 @@
-[
-  {
-    "name": "name1"
-  },
-  {
-    "name": "name2"
-  }
-]
+{
+  "success": true,
+  "code": "0",
+  "message": "",
+  "result": [
+    {
+      "name": "name1"
+    },
+    {
+      "name": "name2"
+    }
+  ]
+}
