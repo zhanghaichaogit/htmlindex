@@ -1,145 +1,195 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SUI Mobile Demo</title>
-    <meta name="description" content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
-    <meta name="author" content="阿里巴巴国际UED前端">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="format-detection" content="telephone=no">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SUI Mobile Demo</title>
+  <meta name="description"
+        content="MSUI: Build mobile apps with simple HTML, CSS, and JS components.">
+  <meta name="author" content="阿里巴巴国际UED前端">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no">
 
-    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css">
-    <link rel="stylesheet" href="/htmlindex/css/common.css">
+  <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.css">
+  <link rel="stylesheet" href="/htmlindex/css/common.css">
 </head>
 <body>
 <div class="page-group">
-    <div id="page-fixed-tab-infinite-scroll" class="page">
-        <div class="content">
-            <div class="content-padded">
-                <div class="col-100">
-                    <a href="#" data-tab="tab2" class="open-about button">
-                        <svg t="1504437954538" class="icon"
-                             style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
-                             viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2095"
-                             id="mx_n_1504437954546">
-                            <path d="M853.333333 533.333333C865.115407 533.333333 874.666667 523.782074 874.666667 512 874.666667 500.217926 865.115407 490.666667 853.333333 490.666667L170.666667 490.666667C158.884592 490.666667 149.333333 500.217926 149.333333 512 149.333333 523.782074 158.884592 533.333333 170.666667 533.333333L853.333333 533.333333Z"
-                                  p-id="2096" class=""></path>
-                            <path d="M490.666667 853.333333C490.666667 865.115407 500.217926 874.666667 512 874.666667 523.782074 874.666667 533.333333 865.115407 533.333333 853.333333L533.333333 170.666667C533.333333 158.884592 523.782074 149.333333 512 149.333333 500.217926 149.333333 490.666667 158.884592 490.666667 170.666667L490.666667 853.333333Z"
-                                  p-id="2097"></path>
-                        </svg>
-                    </a>
-                </div>
-            </div>
+  <div id="page-fixed-tab-infinite-scroll" class="page">
+    <div class="content">
+      <div class="content-padded">
+        <div class="col-100">
+          <p>
+            <a href="#" data-tab="tab1" class="open-about button">
+              <svg t="1504437954538" class="icon"
+                   style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                   viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                   p-id="2095"
+                   id="mx_n_1504437954546">
+                <path
+                    d="M853.333333 533.333333C865.115407 533.333333 874.666667 523.782074 874.666667 512 874.666667 500.217926 865.115407 490.666667 853.333333 490.666667L170.666667 490.666667C158.884592 490.666667 149.333333 500.217926 149.333333 512 149.333333 523.782074 158.884592 533.333333 170.666667 533.333333L853.333333 533.333333Z"
+                    p-id="2096" class=""></path>
+                <path
+                    d="M490.666667 853.333333C490.666667 865.115407 500.217926 874.666667 512 874.666667 523.782074 874.666667 533.333333 865.115407 533.333333 853.333333L533.333333 170.666667C533.333333 158.884592 523.782074 149.333333 512 149.333333 500.217926 149.333333 490.666667 158.884592 490.666667 170.666667L490.666667 853.333333Z"
+                    p-id="2097"></path>
+              </svg>
+            </a>
+          </p>
         </div>
-        <div class="popup popup-about">
-            <nav class="bar bar-tab bar-tabheight">
-                <a class="tab-item external active close-popup tab-itemheight" href="#">
-                    <span class="icon icon-down"></span>
-                </a>
-            </nav>
-            <div class="content  native-scroll" data-type="">
-                <div class="buttons-tab fixed-tab">
-                    <a href="#tab1" id="headtab1" class="tab-link button">全部</a>
-                    <a href="#tab2" id="headtab2" class="tab-link button">待付款</a>
-                    <a href="#tab3" id="headtab3" class="tab-link button">待发货</a>
-                </div>
-                <div class="tabs">
-                    <div id="tab1" class="tab">
-
-                    </div>
-                    <div id="tab2" class="tab infinite-scroll">
-                        <div class="list-block">
-                            <ul class="list-container">
-
-                            </ul>
-                        </div>
-                        <!-- 加载提示符 -->
-                        <div class="infinite-scroll-preloader">
-                            <div class="preloader">
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab3" class="tab infinite-scroll">
-
-                    </div>
-                </div>
-            </div>
-
+        <div class="row no-gutter">
+          <div class="col-50">
+            <p>
+              <a href="#" data-tab="tab2" class="open-about button">
+                <svg t="1504437954538" class="icon"
+                     style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+                     viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                     p-id="2095"
+                     id="mx_n_1504437954546">
+                  <path
+                      d="M853.333333 533.333333C865.115407 533.333333 874.666667 523.782074 874.666667 512 874.666667 500.217926 865.115407 490.666667 853.333333 490.666667L170.666667 490.666667C158.884592 490.666667 149.333333 500.217926 149.333333 512 149.333333 523.782074 158.884592 533.333333 170.666667 533.333333L853.333333 533.333333Z"
+                      p-id="2096" class=""></path>
+                  <path
+                      d="M490.666667 853.333333C490.666667 865.115407 500.217926 874.666667 512 874.666667 523.782074 874.666667 533.333333 865.115407 533.333333 853.333333L533.333333 170.666667C533.333333 158.884592 523.782074 149.333333 512 149.333333 500.217926 149.333333 490.666667 158.884592 490.666667 170.666667L490.666667 853.333333Z"
+                      p-id="2097"></path>
+                </svg>
+              </a>
+            </p>
+          </div>
         </div>
+      </div>
     </div>
+    <div class="popup popup-about">
+      <nav class="bar bar-tab bar-tabheight">
+        <a class="tab-item external active close-popup tab-itemheight" href="#">
+          <span class="icon icon-down"></span>
+        </a>
+      </nav>
+      <div class="content  native-scroll" data-type="">
+        <div class="buttons-tab fixed-tab">
+          <a href="#tab1" id="headtab1" data-tab="tab1" class="tab-link button">全部</a>
+          <a href="#tab2" id="headtab2" data-tab="tab2" class="tab-link button">待付款</a>
+          <a href="#tab3" id="headtab3" data-tab="tab3" class="tab-link button">待发货</a>
+        </div>
+        <div class="tabs">
+          <div id="tab1" class="tab">
+
+          </div>
+          <div id="tab2" class="tab infinite-scroll">
+            <div class="list-block">
+              <ul class="list-container">
+
+              </ul>
+            </div>
+            <!-- 加载提示符 -->
+            <div class="infinite-scroll-preloader">
+              <div class="preloader">
+              </div>
+            </div>
+            <div class="infinite-scroll-preloader nomore" style="display: none">
+              <span>暂无更多数据</span>
+            </div>
+          </div>
+          <div id="tab3" class="tab infinite-scroll">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>
-<script>
-    $(function () {
-        //多个标签页下的无限滚动
-        $(document).on("pageInit", "#page-fixed-tab-infinite-scroll", function (e, id, page) {
-            //弹出选择页面
-            $(document).on('click', '.open-about', function () {
-                var tabid = $(this).attr("data-tab");
-                $(".tabs .tab").removeClass("active");
-                $("#" + tabid).addClass("active");
-                $(".buttons-tab .tab-link").removeClass("active");
-                $("#head" + tabid).addClass("active");
-                $.popup('.popup-about');
-                loadList();
-            });
+<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js'
+        charset='utf-8'></script>
+<script src="https://cdn.bootcss.com/handlebars.js/4.0.10/handlebars.min.js"></script>
 
-            var loadList = function () {
-                var tablistlength = $('.infinite-scroll .active .list-container li').length;
-                if (tablistlength == null || tablistlength == 0) {
-                    addItems();
-                }
-            }
-
-            var loading = false;
-
-            function addItems() {
-                // 生成新条目的HTML
-                var html = '';
-                $.ajax({
-                    type: "post",
-                    url: "/htmlindex/data/modeljson.json",
-                    data: {},
-                    dataType: "json",
-                    success: function (data) {
-                        if (data.length < 20) {
-                            // 加载完毕，则注销无限加载事件，以防不必要的加载
-//                            $.detachInfiniteScroll($('.infinite-scroll .active'));
-                            // 删除加载提示符
-                            $('.infinite-scroll-preloader').find(".infinite-scroll-preloader").hide();
-                        }
-                        $.each(data, function (index, value) {
-                            html += '<li class="item-content""><div class="item-inner"><div class="item-title">' + value['name'] + '</div></div></li>';
-                        })
-                        // 添加新条目
-                        $('.infinite-scroll.active .list-container').append(html);
-                    }
-                });
-            }
-
-            $(page).on('infinite', function () {
-                // 如果正在加载，则退出
-                if (loading) return;
-                // 设置flag
-                loading = true;
-                // 模拟1s的加载过程
-                setTimeout(function () {
-                    // 重置加载flag
-                    loading = false;
-                    addItems();
-                    $.refreshScroller();
-                }, 1000);
-            });
-        });
-        $.init();
-    });
+<script id="tablist" type="text/x-handlebars-template">
+  {{#each this}}
+  <li class="item-content">
+    <div class="item-inner">
+      <div class="item-title">
+        {{name}}
+      </div>
+    </div>
+  </li>
+  {{/each}}
 </script>
-<script src="/htmlindex/js/demo.js"></script>
+<script>
+  $(function () {
+    //多个标签页下的无限滚动
+    $(document).on("pageInit", "#page-fixed-tab-infinite-scroll", function (e, id, page) {
+      //弹出选择页面
+      $(document).on('click', '.open-about', function () {
+        var tabid = $(this).attr("data-tab");
+        $(".tabs .tab").removeClass("active");
+        $("#" + tabid).addClass("active");
+        $(".buttons-tab .tab-link").removeClass("active");
+        $("#head" + tabid).addClass("active");
+        $.popup('.popup-about');
+        loadList(tabid);
+      });
+      //tab标签点击事件
+      $(document).on('click', '.buttons-tab .tab-link', function () {
+        var tabid = $(this).attr("data-tab");
+        $(".tabs .tab").removeClass("active");
+        $("#" + tabid).addClass("active");
+        $(".buttons-tab .tab-link").removeClass("active");
+        $("#head" + tabid).addClass("active");
+        $.popup('.popup-about');
+        loadList(tabid);
+      });
+
+      //点击tab或者加号进行加载数据判断
+      var loadList = function (tabid) {
+        var tablistlength = $('#' + tabid + ' .list-container li').length;
+        if (tablistlength == null || tablistlength == 0) {
+          addItems(tabid);
+        }
+      }
+
+      var loading = false;
+
+      function addItems(tabid) {
+        loading = false;
+        $.ajax({
+          type: "post",
+          url: "/htmlindex/data/modeljson.json",
+          data: {},
+          dataType: "json",
+          success: function (data) {
+            if (data.success) {
+              if (data['result'].length < 20) {
+                // 加载完毕，则注销无限加载事件，以防不必要的加载
+                $.detachInfiniteScroll($('#' + tabid));
+                // 删除加载提示符
+                $('#' + tabid + ' .infinite-scroll-preloader').hide();
+                $('.tabs .active .nomore').show();
+              }
+              var myTemplate = Handlebars.compile($("#tablist").html());
+              // 添加新条目
+              $('.infinite-scroll.active .list-container').append(myTemplate(data['result']));
+            } else {
+              $.toast("操作失败");
+            }
+            loading = true;
+          }
+        });
+      }
+
+      $(page).on('infinite', function () {
+        // 如果正在加载，则退出
+        if (loading) return;
+        // 设置flag
+        addItems();
+        $.refreshScroller();
+      });
+    });
+    $.init();
+  });
+</script>
 </body>
 </html>
