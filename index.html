@@ -75,71 +75,7 @@
 <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.js' charset='utf-8'></script>
 <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.js' charset='utf-8'></script>
-<script>
-    $(function () {
-        //多个标签页下的无限滚动
-        $(document).on("pageInit", "#page-fixed-tab-infinite-scroll", function (e, id, page) {
-            //弹出选择页面
-            $(document).on('click', '.open-about', function () {
-                var tabid = $(this).attr("data-tab");
-                $(".tabs .tab").removeClass("active");
-                $("#" + tabid).addClass("active");
-                $(".buttons-tab .tab-link").removeClass("active");
-                $("#head" + tabid).addClass("active");
-                $.popup('.popup-about');
-                loadList();
-            });
-
-            var loadList = function () {
-                var tablistlength = $('.infinite-scroll .active .list-container li').length;
-                if (tablistlength == null || tablistlength == 0) {
-                    addItems();
-                }
-            }
-
-            var loading = false;
-
-            function addItems() {
-                // 生成新条目的HTML
-                var html = '';
-                $.ajax({
-                    type: "post",
-                    url: "/htmlindex/data/modeljson.json",
-                    data: {},
-                    dataType: "json",
-                    success: function (data) {
-                        if (data.length < 20) {
-                            // 加载完毕，则注销无限加载事件，以防不必要的加载
-//                            $.detachInfiniteScroll($('.infinite-scroll .active'));
-                            // 删除加载提示符
-                            $('.infinite-scroll-preloader').find(".infinite-scroll-preloader").hide();
-                        }
-                        $.each(data, function (index, value) {
-                            html += '<li class="item-content""><div class="item-inner"><div class="item-title">' + value['name'] + '</div></div></li>';
-                        })
-                        // 添加新条目
-                        $('.infinite-scroll.active .list-container').append(html);
-                    }
-                });
-            }
-
-            $(page).on('infinite', function () {
-                // 如果正在加载，则退出
-                if (loading) return;
-                // 设置flag
-                loading = true;
-                // 模拟1s的加载过程
-                setTimeout(function () {
-                    // 重置加载flag
-                    loading = false;
-                    addItems();
-                    $.refreshScroller();
-                }, 1000);
-            });
-        });
-        $.init();
-    });
-</script>
-<script src="/htmlindex/js/demo.js"></script>
+<script type='text/javascript' src='/htmlindex/js/pageutil.js' charset='utf-8'></script>
+<script type='text/javascript' src="/htmlindex/js/pageinit.js" charset='utf-8'></script>
 </body>
 </html>
